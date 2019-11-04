@@ -1,0 +1,26 @@
+#cke_2_contents {
+    height: 400px !important;
+}
+.formRowComment label {
+    max-width: 110px;
+    margin-right: 20px;
+}
+#cke_2_top .cke_toolbar_break {
+    display: none;
+}
+.formRowComment .formRight {
+    width: calc(100% - 130px);
+}
+#form_comment .btn.btn-success {
+    padding: 10px 40px;
+    margin-right: 0;
+}
+.btn.btn-update.btn-back{
+    background-color: #1cb5ef !important;
+    border-color: #1cb5ef !important;
+    color: #fff;
+}
+
+.header-sticky {
+    display: none;
+}
