@@ -1,52 +1,52 @@
 {
-  "name": "Custom PMS",
-  "version": "1.0.0",
-  "manifest_version": 2,
-  "description": "Custom Css For PMS",
-  "icons": {
-    "16": "images/favicon.png",
-    "128": "images/favicon.png"
-  },
-  "default_locale": "en",
-  "background": {
-    "scripts": [
-      "scripts/chromereload.js",
-      "scripts/background.js"
-    ]
-  },
-  "browser_action": {
-    "default_icon": {
-      "19": "images/favicon.png",
-      "38": "images/favicon.png"
+    "name": "Custom PMS",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Custom Css For PMS",
+    "icons": {
+        "16": "images/favicon.png",
+        "128": "images/favicon.png"
     },
-    "default_title": "Custom PMS",
-    "default_popup": "popup.html"
-  },
-  "omnibox": {
-    "keyword": " "
-  },
-  "content_scripts": [
-    {
-      "matches": [
+    "default_locale": "en",
+    "background": {
+        "scripts": [
+            "scripts/chromereload.js",
+            "scripts/background.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/favicon.png",
+            "38": "images/favicon.png"
+        },
+        "default_title": "Custom PMS",
+        "default_popup": "popup.html"
+    },
+    "omnibox": {
+        "keyword": " "
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://pms.bssgroup.vn/*"
+            ],
+            "js": [
+                "scripts/jquery.js",
+                "scripts/contentscript.js"
+            ],
+            "run_at": "document_idle",
+            "all_frames": false
+        }
+    ],
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "web_accessible_resources": [
+        "styles/bss.css"
+    ],
+    "permissions": [
+        "tabs",
+        "notifications",
+        "management",
+        "storage",
         "*://pms.bssgroup.vn/*"
-      ],
-      "js": [
-        "scripts/jquery.js",
-        "scripts/contentscript.js"
-      ],
-      "run_at": "document_idle",
-      "all_frames": false
-    }
-  ],
-  "content_security_policy": "script-src 'self'; object-src 'self'",
-  "web_accessible_resources": [
-    "styles/bss.css",
-    "scripts/custom.js"
-  ],
-  "permissions": [
-    "notifications",
-    "management",
-    "storage",
-    "*://pms.bssgroup.vn/*"
-  ]
+    ]
 }
