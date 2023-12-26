@@ -1,52 +1,31 @@
 {
     "name": "Custom PMS",
-    "version": "1.0.0",
-    "manifest_version": 2,
+    "version": "1.0.1",
+    "manifest_version": 3,
     "description": "Custom Css For PMS",
     "icons": {
         "16": "images/favicon.png",
         "128": "images/favicon.png"
     },
-    "default_locale": "en",
-    "background": {
-        "scripts": [
-            "scripts/chromereload.js",
-            "scripts/background.js"
-        ]
-    },
-    "browser_action": {
-        "default_icon": {
-            "19": "images/favicon.png",
-            "38": "images/favicon.png"
-        },
-        "default_title": "Custom PMS",
-        "default_popup": "popup.html"
-    },
-    "omnibox": {
-        "keyword": " "
-    },
     "content_scripts": [
         {
-            "matches": [
-                "*://pms.bssgroup.vn/*"
-            ],
-            "js": [
-                "scripts/jquery.js",
-                "scripts/contentscript.js"
-            ],
+            "matches": ["*://pms.bssgroup.vn/*"],
             "run_at": "document_idle",
+            "js": ["scripts/jquery.js", "scripts/content-script.js"],
             "all_frames": false
         }
     ],
-    "content_security_policy": "script-src 'self'; object-src 'self'",
-    "web_accessible_resources": [
-        "styles/bss.css"
-    ],
+    "background": {
+        "service_worker": "scripts/service-worker.js"
+    },
     "permissions": [
-        "tabs",
-        "notifications",
-        "management",
+        "activeTab",
+        "cookies",
+        "scripting",
         "storage",
-        "*://pms.bssgroup.vn/*"
-    ]
+        "tabs",
+        "webNavigation"
+    ],
+    "host_permissions": ["https://pms.bssgroup.vn/*"],
+    "action": {}
 }

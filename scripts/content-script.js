@@ -1,14 +1,5 @@
 'use strict';
 
-var link = document.createElement("link");
-link.href = chrome.extension.getURL('styles/bss.css');
-link.type = "text/css";
-link.rel = "stylesheet";
-(document.head || document.documentElement).appendChild(link);
-
-var s = document.createElement('script');
-s.src = chrome.extension.getURL('scripts/custom.js');
-(document.head || document.documentElement).appendChild(s);
 var detail = $('.bc-wrap-taskdetail >.bc-view-pp-left .bc-title-inner');
 
 
@@ -22,9 +13,8 @@ if (detail.length) {
             }
         }
     );
-    var
-    html ='<div class="header-sticky"></div>'; //header-sticky
-    var btnLogTime = '<div class="log_time"><button class="active btn-update-log-time"><span class="">Log Time</span></button></div>',
+    var html ='<div class="header-sticky"></div>',
+        btnLogTime = '<div class="log_time"><button class="active btn-update-log-time"><span class="">Log Time</span></button></div>';
         detail  = '<div class="detail">'
             +'<input type="hidden" id="task-name">'
             +'<input type="hidden" id="task-key">'
